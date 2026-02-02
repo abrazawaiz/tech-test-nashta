@@ -3,10 +3,10 @@ Tech Test @ NashTa Group
 ## How to Run
 
 ### 1. Build & Push Producer Image
-\`\`\`bash
+\\\bash
 docker build -t abrazawaiz/csv-producer-nashta:latest .
 docker push abrazawaiz/csv-producer-nashta:latest
-\`\`\`
+\\\
 
 ### 2. Deploy Infrastructure
 Start Kafka, Kafka Connect, and Postgres on Kubernetes:
