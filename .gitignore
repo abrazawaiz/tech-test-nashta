@@ -1,0 +1,8 @@
+cat <<EOF > .gitignore
+venv/
+__pycache__/
+.DS_Store
+.idea/
+.vscode/
+*.pyc
+EOF
