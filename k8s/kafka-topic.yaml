@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-kafka-topic
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: kafka-topic-creator
+          image: confluentinc/cp-kafka:7.5.0
+          command:
+            - bash
+            - -c
+            - |
+              echo "Waiting for Kafka..."
+              sleep 20
+              kafka-topics \
+                --bootstrap-server kafka:9092 \
+                --create \
+                --if-not-exists \
+                --topic ecommerce_customer \
+                --partitions 1 \
+                --replication-factor 1
+              echo "Topic created: ecommerce_customer"

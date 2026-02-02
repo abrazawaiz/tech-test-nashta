@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: csv-producer-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: csv-producer
+        image: abrazawaiz/csv-producer-nashta:latest
+        imagePullPolicy: Always
+      restartPolicy: Never
