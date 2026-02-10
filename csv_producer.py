@@ -9,12 +9,6 @@ TOPIC_NAME = "ecommerce_customer_v2"
 CSV_FILE = "data/ecommerce_customer.csv"
 
 def dict_to_struct(row):
-    """
-    Fungsi ini membungkus data row dengan Schema Kafka Connect.
-    Ini WAJIB jika 'value.converter.schemas.enable' di set 'true'
-    agar tabel Postgres bisa dibuat otomatis.
-    """
-    # Kita anggap semua field string dulu biar aman dan tidak error tipe data
     fields = [{"type": "string", "optional": True, "field": k} for k in row.keys()]
     
     return {
